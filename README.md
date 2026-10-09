@@ -84,6 +84,14 @@ Downloads contain valid JSON without comments. The legacy `crs` member uses CRS8
 Filenames are sanitized and repeated downloads get suffixes such as `-2` within the current page session. This local uniqueness tracking cannot inspect your disk, prevent filesystem collisions or survive a reload; your browser controls the final saved filename.
 
 
+## Install the App
+
+Open https://kinghaigy.github.io/FieldBeeLines/ while connected to the internet. In Chrome or Edge on desktop, use the address-bar install icon or the browser menu's **Install FieldBee Lines** option. On Android, use Chrome's **Install app** or **Add to Home screen** menu. On iPhone or iPad, open the site in Safari, choose **Share > Add to Home Screen**, and enable **Open as Web App** if offered. Installation options depend on your browser and device; no account is needed.
+
+After the first successful online load finishes caching, the app can reopen offline and still import DXF files, search the bundled CRS catalogue, plot survey geometry and download GeoJSON. OpenStreetMap background tiles and external links still need internet access; map tiles are not cached for offline use. Saved drawings remain subject to the browser storage limits described above. Updates are downloaded when online and become active after all open app windows/tabs are closed and the app is reopened, without forcing a reload while you work.
+
+PWA installation requires HTTPS (as provided by GitHub Pages) or localhost. The service worker is generated only for production builds; use `npm run build` and `npm run preview` to test it locally.
+
 ## Local Setup
 
 Use Node.js 22.12 or newer and npm. From this directory:
