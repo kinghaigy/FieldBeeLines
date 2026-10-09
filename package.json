@@ -1,0 +1,30 @@
+{
+  "name": "fieldbee-lines",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/poppins": "^5.2.6",
+    "dxf-parser": "^1.1.2",
+    "epsg-index": "^2.0.0",
+    "leaflet": "^1.9.4",
+    "lucide": "^0.468.0",
+    "proj4": "^2.19.10"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/leaflet": "^1.9.21",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.0",
+    "vitest": "^5.0.3"
+  },
+  "engines": { "node": ">=22.12.0" }
+}

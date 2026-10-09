@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "FieldBee Lines: local app",
+			"type": "shell",
+			"command": "npm run dev -- --port 5173",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
