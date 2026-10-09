@@ -60,7 +60,7 @@ Conversion details identify the source, target, and operation from the parsed CR
 
 Each download is strict JSON containing exactly one FeatureCollection feature, one straight LineString and two distinct `[longitude, latitude]` positions in WGS84 (EPSG:4326). Properties are the strings `begin: "1"` and `end: "2"`.
 
-The supplied example [AB Line Row Center.geojson](AB%20Line%20Row%20Center.geojson) is preserved deliberately, including its leading comment, which makes that example invalid JSON. Downloads do not contain that comment. The legacy `crs` member uses CRS84 to match the supplied FieldBee example; this is intentionally not strict RFC 7946 GeoJSON, which removed the `crs` member.
+Downloads contain valid JSON without comments. The legacy `crs` member uses CRS84 to match the format successfully imported into FieldBee; this is intentionally not strict RFC 7946 GeoJSON, which removed the `crs` member.
 
 ```json
 {
@@ -106,3 +106,11 @@ npm run test:e2e
 The production build is written to `dist`; serve it over HTTP rather than opening it directly as a local file. Playwright builds the app and starts a dedicated production preview on http://127.0.0.1:5181/FieldBeeLines/ to verify GitHub Pages-style paths; keep that port free while running the suite. On Linux, missing Chromium system dependencies may require `npx playwright install --with-deps chromium` with appropriate administrator permissions.
 
 The end-to-end suite runs actual uploads, CRS searches, selections and downloaded-file validation on desktop Chromium and Chromium emulating Pixel 5. It covers duplicate names, ordered endpoints, CRS invalidation, units guards, unavailable tiles, safe layer labels, uncaught JavaScript errors and horizontal overflow. Screenshots and failure traces go into `test-results`. Workflow tests use `.pw.ts` and Playwright's explicit `testMatch`, so Vitest's default `.test`/`.spec` discovery does not collect them.
+
+## GitHub Pages
+
+The [Deploy GitHub Pages workflow](.github/workflows/pages.yml) runs on pushes to `main` and can be started manually from the repository's **Actions** tab: choose **Deploy GitHub Pages**, click **Run workflow**, and select `main`.
+
+Keep **Settings > Pages > Source** set to **GitHub Actions**. The workflow installs locked dependencies with `npm ci`, runs unit tests, builds the Vite app, and deploys only `dist` after validation passes. Source files, test fixtures, and the Lisp routine are not part of the deployed site. No hosting credentials or custom secrets are required.
+
+Published site: https://kinghaigy.github.io/FieldBeeLines/

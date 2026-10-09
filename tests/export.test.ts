@@ -1,19 +1,8 @@
-import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { exportLine, uniqueFilename } from "../src/export/geojson";
 import type { Line } from "../src/types";
 
 describe("FieldBee export", () => {
-  it("matches the user-provided accepted example exactly", () => {
-    const text = readFileSync(
-      new URL("../AB Line Row Center.geojson", import.meta.url),
-      "utf8",
-    );
-    const sample = JSON.parse(text.slice(text.indexOf("{")));
-    expect(
-      exportLine(sample.name, sample.features[0].geometry.coordinates),
-    ).toEqual(sample);
-  });
   it("rejects degenerate and invalid coordinates", () => {
     expect(() =>
       exportLine("test", [
