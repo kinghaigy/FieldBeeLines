@@ -1,5 +1,7 @@
 # FieldBee Lines
 
+[Try it here!](https://kinghaigy.github.io/FieldBeeLines/)
+
 A browser tool for converting lines, or two imported points/endpoints grom a georeferenced DXF, into a FieldBee-accepted GeoJSON. Not affiliated with, sponsored by, or endorsed by FieldBee. Final compatibility and location checks require an import on your actual FieldBee device/version before use.
 
 You can only import guidance lines on the app, not the web interface for now. It has been that way for years.
