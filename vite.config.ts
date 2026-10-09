@@ -11,7 +11,7 @@ export default defineConfig({
       registerType: "prompt",
       includeAssets: ["favicon.svg", "apple-touch-icon-180x180.png"],
       manifest: {
-        id: "./",
+        id: "/FieldBeeLines/",
         name: "FieldBee Lines",
         short_name: "FieldBee Lines",
         description: "Convert metre-based DXF survey lines into FieldBee A-B GeoJSON guidance lines on your device.",

@@ -92,6 +92,8 @@ After the first successful online load finishes caching, the app can reopen offl
 
 PWA installation requires HTTPS (as provided by GitHub Pages) or localhost. The service worker is generated only for production builds; use `npm run build` and `npm run preview` to test it locally.
 
+The app's stable manifest ID is `/FieldBeeLines/`. Manifest IDs resolve against the site origin, unlike the manifest-relative launch URL and scope, so `id: "./"` would collide with other apps using that ID on the same GitHub Pages domain. If Chrome previously treated this app as another installed app, refresh the site and install it again after the corrected manifest is deployed. An old installation may remain under the shared root ID; remove that obsolete installation only if you no longer need it. Do not choose to clear site data when uninstalling if you need to retain saved drawings or data belonging to other apps on the same origin.
+
 ## Local Setup
 
 Use Node.js 22.12 or newer and npm. From this directory:

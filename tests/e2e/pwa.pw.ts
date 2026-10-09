@@ -18,7 +18,12 @@ test("installs at the repository subpath and converts a drawing offline", async 
   const manifest = await response.json();
   expect(manifest.name).toBe("FieldBee Lines");
   expect(manifest.display).toBe("standalone");
-  for (const key of ["id", "start_url", "scope"]) {
+  const startUrl = new URL(manifest.start_url, manifestUrl);
+  const appId = new URL(manifest.id, startUrl.origin);
+  expect(manifest.id).toBe("/FieldBeeLines/");
+  expect(appId.href).toBe(`${startUrl.origin}/FieldBeeLines/`);
+  expect(appId.href).not.toBe(new URL("./", startUrl.origin).href);
+  for (const key of ["start_url", "scope"]) {
     expect(new URL(manifest[key], manifestUrl).pathname).toBe("/FieldBeeLines/");
   }
   expect(manifest.icons).toEqual(expect.arrayContaining([
